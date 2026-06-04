@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class ="text-center mb-5">
+
+    <h1 class="display-4 fw-bold">
+        Expense Tracker Dashboard
+    </h1>
+
+    <h4 class="text-primary">
+        @ViewBag.CurrentMonth
+    </h4>
+
+    <p class="text-muted">
+        Manage your expenses and budget easily
+    </p>
+</div>
+
+<div class="row">
+
+    <!-- Budget Card -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow p-4 text-center">
+            <h3>Total Budget</h3>
+
+            <h1 class="text-primary">
+                ₹@ViewBag.Budget
+            </h1>
+        </div>
+    </div>
+
+    <!-- Expense Card -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow p-4 text-center">
+            <h3>Total Expenses</h3>
+
+            <h1 class="text-danger">
+                ₹@ViewBag.TotalExpense
+            </h1>
+        </div>
+    </div>
+
+    <!-- Remaining Card -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow p-4 text-center">
+            <h3>Remaining Balance</h3>
+
+            <h1 class="text-success">
+                ₹@ViewBag.Remaining
+            </h1>
+        </div>
+    </div>
+
+</div>
+
+@if (ViewBag.Remaining < 0)
+{
+    <div class="alert alert-danger text-center mt-3">
+        <h4>Budget Exceeded!</h4>
+    </div>
+}
+
+<div class="text-center mt-5">
+
+    <a asp-controller="Expenses"
+       asp-action="Index"
+       class="btn btn-primary btn-lg me-3">
+        View Expenses
+    </a>
+
+    <a asp-controller="Expenses"
+       asp-action="Create"
+       class="btn btn-success btn-lg me-3">
+        Add Expense
+    </a>
+
+    <a asp-controller="Budgets"
+       asp-action="Index"
+       class="btn btn-warning btn-lg">
+        Manage Budget
+    </a>
+
+</div>
+

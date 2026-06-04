@@ -1,0 +1,40 @@
+@model IEnumerable<ExpenseTracker.Models.Budget>
+
+@{
+    ViewData["Title"] = "Monthly Budget";
+}
+
+<h1 class="mb-4">
+    Monthly Budget
+</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-primary">
+        Set / Update Budget
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Month</th>
+            <th>Budget Amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Month</td>
+
+                <td>₹@item.Amount</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,122 @@
+@model IEnumerable<ExpenseTracker.Models.Expense>
+
+@{
+    ViewData["Title"] = "Expenses";
+}
+
+<h1 class="mb-4">Monthly Expenses</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Add New Expense
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Month</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+
+                <td>₹@item.Amount</td>
+
+                <td>@item.Category</td>
+
+                <td>
+                    @item.Date.ToString("dd-MM-yyyy")
+                </td>
+
+                <td>@item.Month</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.Id"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Details"
+                       asp-route-id="@item.Id"
+                       class="btn btn-info btn-sm">
+                        Details
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@item.Id"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<hr />
+
+
+<hr class="mt-5" />
+
+<h2 class="text-center mb-4">
+    Expense Analytics
+</h2>
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <canvas id="expenseChart"></canvas>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    const labels = @Html.Raw(ViewBag.CategoryLabels);
+
+    const data = @Html.Raw(ViewBag.CategoryAmounts);
+
+    const ctx = document.getElementById('expenseChart');
+
+    new Chart(ctx, {
+
+    type: 'pie',
+
+    data: {
+
+    labels: labels,
+
+    datasets: [{
+
+    label: 'Expenses by Category',
+
+    data: data,
+
+    borderWidth: 1
+
+    }]
+    }
+    });
+
+</script>
