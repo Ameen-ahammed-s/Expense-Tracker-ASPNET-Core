@@ -29,31 +29,31 @@ A web-based Expense Tracker application built using ASP.NET Core MVC, C#, Entity
 
 ### Login Page
 
-![Login Page](Screenshots/login-page.png)
+![Login Page](Screenshots/login-page.jpg)
 
 ### Dashboard
 
-![Dashboard](Screenshots/dashboard.png)
+![Dashboard](Screenshots/dashboard.jpg)
 
 ### Expense List
 
-![Expense List](Screenshots/expense-list.png)
+![Expense List](Screenshots/expense-list.jpg)
 
 ### Expense Analytics
 
-![Expense Analytics](Screenshots/expense-analytics.png)
+![Expense Analytics](Screenshots/expense-analytics.jpg)
 
 ### Add Expense
 
-![Add Expense](Screenshots/add-expense.png)
+![Add Expense](Screenshots/add-expense.jpg)
 
 ### Delete Expense
 
-![Delete Expense](Screenshots/delete-expense.png)
+![Delete Expense](Screenshots/delete-expense.jpg)
 
 ### Budget Management
 
-![Budget Management](Screenshots/budget-management.png)
+![Budget Management](Screenshots/budget-management.jpg)
 
 ---
 
